@@ -1,0 +1,42 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back-circle-outline" defaultHref="marvel"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-card>
+    <ion-card-header color="light" class="ion-text-center">
+      <ion-card-title>Cual es ese personaje?</ion-card-title>
+      <ion-card-subtitle>
+        <h4>{{character.name}}</h4>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="Silhouette of mountains">
+
+<!-- Falat mostrar 'Sin Descripcion' a los que no tienen descripcion-->
+
+    <ion-card-content>
+      <ion-card-title>Descripcion</ion-card-title>
+      <ion-card-subtitle *ngIf="character.description; else SinDescripcion">{{character.description}}</ion-card-subtitle>
+      <ng-template #SinDescripcion>
+        <ion-card-subtitle >Sin descripción</ion-card-subtitle>
+      </ng-template>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-card-title>Comics</ion-card-title>
+      <ion-list *ngFor="let comic of character.comics.items">
+        <ion-item>
+          <ion-label>
+            <h2>{{comic.name}}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
