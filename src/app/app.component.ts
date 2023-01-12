@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { SplashComponent } from './splash/splash.component';
 
 @Component({
   selector: 'app-root',
@@ -15,5 +17,15 @@ export class AppComponent {
     { title: 'Profile', url: '/profile', icon: 'person'},
     ];
 
-  constructor() {}
+  constructor(private modalController: ModalController) {
+    
+  }
+
+  async presentSplash(){
+    const modal = await this.modalController.create({
+      component: SplashComponent,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
 }
