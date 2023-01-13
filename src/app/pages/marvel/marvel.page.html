@@ -2,7 +2,7 @@
 
 
 <ion-content>
-  <ion-list position="absolute" lines="none" *ngIf="listarPersonajes">
+  <ion-list  position="absolute" lines="none" *ngIf="listarPersonajes.length">
     <ion-item *ngFor="let character of listarPersonajes">
         <ion-avatar slot="start">
           <img [src]="character.thumbnail.path+'.'+character.thumbnail.extension" alt="{{character.name}}">
@@ -20,8 +20,8 @@
 
     <!-- Carga lista Skeleton-->
 
-  <ion-list>
-    <ion-item >
+  <ion-list *ngIf="!listarPersonajes.length">
+    <ion-item *ngFor="let listarPersonajes of [1,2,3,4,5,6,7,8]">
       <ion-avatar slot="start">
         <ion-skeleton-text [animated]="true"></ion-skeleton-text>
       </ion-avatar>

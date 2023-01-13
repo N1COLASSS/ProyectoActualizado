@@ -1,7 +1,63 @@
 <app-header [pageTitle]="pageTitle" [pageIcon]="pageIcon"></app-header>
 
 <ion-content>
-    <ion-card-header>
-        <ion-card-title>Acciones</ion-card-title>
-    </ion-card-header>
+    <ion-card *ngIf="resultados">
+        <ion-card-header class="reverse" >
+            <ion-card-title>{{resultados.name}}, {{resultados.sys.country}}</ion-card-title>
+            <ion-card-subtitle color="danger">{{todayDate | date: "MMM dd, HH:mm"}}</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+            <ion-grid >
+                <ion-row>
+                    <ion-col>
+                        <img src="https://openweathermap.org/img/wn/{{resultados.weather[0].icon}}@2x.png" alt="">
+                    </ion-col>
+                    <ion-col>
+                        <ion-card-title>{{resultados.main.temp | number: '1.0-0'}}°C</ion-card-title>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+            <ion-card-subtitle>Feel like {{resultados.main.feels_like | number: '1.0-0'}}°C. {{resultados.weather[0].main}}. {{resultados.weather[0].description}}</ion-card-subtitle>
+            <ion-label>
+                <ion-note>
+                    <div class="details">
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col>
+                                    <div class="wind detail">
+                                        <ion-icon size="small" name="navigate"></ion-icon>
+                                        <p>{{resultados.wind.speed | number: '1.0-1'}}m/s SW</p>
+                                    </div>
+                                </ion-col>
+                                <ion-col>
+                                    <div class="pressure detail">
+                                        <ion-icon size="small" name="speedometer-outline"></ion-icon>
+                                        <p>{{resultados.main.pressure}}hPa</p>
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col>
+                                    <div class="humidity detail">
+                                        <ion-icon name="water"></ion-icon>
+                                        <p>Humidity: {{resultados.main.humidity}}%</p>
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col>
+                                    <div class="visibility detail">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                        <p>Visibility: {{resultados.visibility | number:'1.0-0'}}km</p>
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </div>
+                </ion-note>
+            </ion-label>
+        </ion-card-content>
+    </ion-card>
 </ion-content>

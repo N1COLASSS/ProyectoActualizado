@@ -9,7 +9,7 @@ import { ConversorService } from 'src/app/services/conversor.service';
 export class ConversorPage implements OnInit {
 
   pageTitle = 'Conversor';
-  image = 'conversorr.png';
+  image = 'conversor.png';
   pageIcon = `../../assets/img/${this.image}`
 
   listarSymbols: any = [];

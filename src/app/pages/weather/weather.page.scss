@@ -1,0 +1,33 @@
+
+.reverse {
+    display: flex;
+    flex-flow: column-reverse;
+  }
+
+.center {
+    text-align: center;
+}
+
+ion-col {
+    display: flex;
+    align-items: center;
+
+}
+
+.details {
+    text-align: start{
+    display: flex;
+
+    }
+
+    .detail{
+        display: flex;
+        align-items: center;    
+        position: relative;   
+     }
+}
+
+ion-icon{
+    padding: 8px;
+}
+

@@ -13,15 +13,18 @@ export class WeatherPage implements OnInit {
   image = 'weather.png';
   pageIcon = `../../assets/img/${this.image}`;
 
-  latitude:number;
-  longitude:number;
+  latitude:number=0;
+  longitude:number=0;
 
-  resultados = null;
+  resultados:any = null;
+  todayDate = new Date()
+
 
   constructor(private weatherService: WeatherService,
     public actionSheetController: ActionSheetController) { }
 
   ngOnInit() {
+    this.getGeolocalizacion();
   }
 
   async getGeolocalizacion() {
@@ -29,10 +32,10 @@ export class WeatherPage implements OnInit {
       this.latitude = position.coords.latitude;
       this.longitude = position.coords.longitude;
       this.weatherService.getWeather(this.latitude,this.longitude)
-      .subscribe((res) => {
+      .then((res) => {
         this.resultados = res;
+        console.log(this.resultados)
       })
     })
   }
-
 }

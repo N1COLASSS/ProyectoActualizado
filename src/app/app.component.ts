@@ -10,15 +10,15 @@ import { SplashComponent } from './splash/splash.component';
 export class AppComponent {
   public appPages = [
     { title: 'Home', url: '/home', icon: 'home' },
+    { title: 'About', url: '/about', icon: 'people' },
     { title: 'Weather', url: '/weather', icon: 'thunderstorm' },
     { title: 'Conversor', url: '/conversor', icon: 'cash' },
     { title: 'Marvel', url: '/marvel', icon: 'disc' },
-    { title: 'About', url: '/about', icon: 'people' },
     { title: 'Profile', url: '/profile', icon: 'person'},
     ];
 
   constructor(private modalController: ModalController) {
-    
+    this.presentSplash()
   }
 
   async presentSplash(){

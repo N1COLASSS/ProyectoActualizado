@@ -10,7 +10,8 @@ export class SplashComponent implements OnInit {
 
   constructor(private modalController: ModalController) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ionViewDidEnter(){
     setTimeout(() => {

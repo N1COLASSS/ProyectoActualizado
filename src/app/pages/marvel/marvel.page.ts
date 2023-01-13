@@ -24,6 +24,9 @@ export class MarvelPage implements OnInit{
 
   ngOnInit() {
     this.getListarPersonajes();
+    setTimeout(() => {
+      this.listarPersonajes
+    },3000);
   }
 
   getListarPersonajes(event?:any) {

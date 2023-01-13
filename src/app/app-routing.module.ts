@@ -32,6 +32,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/weather/weather.module').then( m => m.WeatherPageModule)
   },
   {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'page404'
   }
